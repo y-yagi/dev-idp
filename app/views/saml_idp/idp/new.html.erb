@@ -1,0 +1,17 @@
+<%= form_with(url: saml_auth_path) do |form| %>
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :passowrd, style: "display: block" %>
+    <%= form.text_field :password, required: true %>
+  </div>
+
+  <div>
+    <%= hidden_field_tag("SAMLRequest", params[:SAMLRequest]) %>
+    <%= hidden_field_tag("RelayState", params[:RelayState]) %>
+    <%= form.submit 'login' %>
+  </div>
+<% end %>
